@@ -1,6 +1,8 @@
 use std::io;
 
+mod enums;
 mod ownership;
+
 // functions
 fn _meal_calculator(items: [u32; 2]) {
     println!("{:?}", items);
@@ -26,9 +28,10 @@ fn main() {
     // control_blocks();
     // loops_in_rust();
     // ownership();
-    compound_datatypes();
+    // compound_datatypes();
     // ownership::ownership_main_1();
     // ownership::reference_main();
+    enums::enums_declarations()
 }
 
 fn _variable_declarations() {
