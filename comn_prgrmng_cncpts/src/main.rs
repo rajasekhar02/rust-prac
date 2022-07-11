@@ -1,7 +1,10 @@
 use std::io;
-
-mod enums;
-mod ownership;
+// mod enumerations;
+mod collections;
+mod enumerations;
+use crate::collections::vectors;
+use crate::enumerations::enums_declarations;
+// mod ownership;
 
 // functions
 fn _meal_calculator(items: [u32; 2]) {
@@ -31,7 +34,8 @@ fn main() {
     // compound_datatypes();
     // ownership::ownership_main_1();
     // ownership::reference_main();
-    enums::enums_declarations()
+    enums_declarations();
+    vectors();
 }
 
 fn _variable_declarations() {
@@ -216,9 +220,7 @@ fn _borrowing_working_cases() {
     let s1 = s2;
     println!("s2 is {}", s1);
 }
-// fn get_slice(s: String) -> String {
-//     return s[0..4];
-// }
+
 #[derive(Debug)]
 struct User {
     active: bool,
@@ -226,6 +228,7 @@ struct User {
     email: String,
     sign_in_count: u64,
 }
+
 impl User {
     fn is_user_active(&self) -> bool {
         self.active
@@ -243,6 +246,7 @@ impl User {
         &mut self.email
     }
 }
+
 fn compound_datatypes() {
     let user = User {
         active: true,

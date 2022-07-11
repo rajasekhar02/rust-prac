@@ -1,16 +1,16 @@
-enum IpAddrKind {
+pub enum IpAddrKind {
     V4,
     V6,
 }
 
-enum Message {
+pub enum Message {
     Quit,
     Move { x: i32, y: i32 },
     Write(String),
     ChangeColor(i32, i32, i32),
 }
 
-struct IpAddr {
+pub struct IpAddr {
     kind: IpAddrKind,
     address: String,
 }
@@ -47,8 +47,23 @@ pub fn enums_declarations() {
     let absent_number: Option<u32> = None;
 
     // handling exhaustive match
-    let dice_roll = 1;
+    let dice_roll = 10;
     match dice_roll {
         3 => 3 + 1,
+        other1 => (|i: i32| {
+            println!("{}", i + 1);
+            i + 1
+        })(other1),
+    };
+    match dice_roll {
+        3 => 3 + 1,
+        _ => (|| {
+            println!("{}", 1 + 1);
+            1 + 1
+        })(),
+    };
+    if let Some(some_string) = Some(String::from("adsfadf")) {
+        println!("{:?}", some_string);
     }
+    println!("{:?}", some_string);
 }
